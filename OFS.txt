@@ -1,4 +1,4 @@
-hi Ram and Bheem are working on the singly linked list concept.
+ Ram and Bheem are working on the singly linked list concept.
 They have chosen a number each, num1 and num2.
 
 If the number is 432, then the linked list is created as 2->3->4.
