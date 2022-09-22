@@ -935,3 +935,234 @@ class ArrangeCoins {
 		System.out.println(new ArrangeCoins().arrangeCoins(num));
 	}
 }
+********************************************In a team of N players, each player's jersey has a number printed on it.
+Jersey numbers may be repeated.
+
+You will be given the list of jersey numbers of N players. 
+You need to find out number of pairs, wearing same jersey number.
+i.e, pair[i]=[p1, p2], p1 and p2 are the index positions
+jersey number of Player-p1 and Player-p2 should be same.  
+
+If no such pair found, print "0".
+
+Input Format:
+-------------
+Line-1: An integer N, number of players.
+Line-2: N space separated integers, Jersey numbers of players.
+
+Output Format:
+--------------
+Print an integer, number of pairs wearing same jersey number.
+
+
+Sample Input-1:
+---------------
+6
+1 2 3 1 1 3
+
+Sample Output-1:
+----------------
+4
+
+Explanation: 
+------------
+There are 4 pairs (0,3), (0,4), (3,4), (2,5) wearing same jersey numbers, 
+0-indexed list.
+
+Sample Input-2:
+---------------
+3
+1 2 3
+
+Sample Output-2:
+----------------
+0
+
+import java.util.*;
+class re{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int g[]=new int[a];
+        HashMap<Integer,Integer>m=new HashMap<>();
+        for(int i=0;i<a;i++){
+            g[i]=sc.nextInt();
+            m.put(g[i],m.getOrDefault(g[i],0)+1);
+        }
+        int c=0;
+        for(Integer f:m.keySet()){
+            int l=m.get(f);
+         
+            if(l>=2){
+    
+                c=c+((l)*(l-1))/2;
+            }
+        
+        }
+        System.out.println(c);
+        
+    }
+}
+**********************************************************
+A string is called well-weighted string,if and only if
+the string has equal number of 'A's and 'B's in it.
+
+You are given a string S, divide S in to the maximum number of 
+well-weighted strings. You should not leave any letter/part of the string.
+Return the maximum number of well-weighted strings.
+
+Input Format:
+-------------
+A string contains only A's and B's
+
+Output Format:
+--------------
+Print an integer, maximum number of well-weighted strings
+
+
+Sample Input-1:
+---------------
+ABBBBAAABA
+
+Sample Output-1:
+----------------
+3
+
+Explanation:
+--------------
+Well weighted strings, AB, BBBAAA, BA.
+
+
+Sample Input-2:
+---------------
+ABAABBABAB
+
+Sample Output-2:
+----------------
+4
+
+Explanation:
+--------------
+Well weighted strings, AB, AABB, AB, AB.
+
+
+Sample Input-3:
+---------------
+ABAAABBABB
+
+Sample Output-3:
+----------------
+2
+
+
+import java.util.*;
+class re{
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String f=sc.nextLine();
+        int a=0;
+        int b=0;
+        int r=0;
+        for(int i=0;i<f.length();i++){
+            if(f.charAt(i)=='A'){
+                a++;
+            }
+            else{
+                b++;
+            }
+            if(a==b){
+                a=0;
+                b=0;
+                r++;
+            }
+        }
+        System.out.println(r);
+    }
+}
+*****************************************************************************************
+There are n cubes printed a number on each of  them,
+The cubes are placed in a row indexed from 0 to n-1, 
+in ascending order of numbers printed on them.
+
+Your task is to find the smallest index  I of the row, 
+where index I equals to the number printed on the cube.
+
+If no such index found, print -1.
+
+NOTE: use a method/function  to find the smallest index I of the row.
+and use binary search approach.
+
+Input Format:
+-------------
+Line-1: An integer n, number of cubes.
+Line-2: n space separated integers, 
+numbers printed on the cubes in the row.
+
+Output Format:
+--------------
+Print an integer, smallest index possible.
+
+
+Sample Input-1:
+---------------
+5
+-10,-5,0,3,4
+
+Sample Output-1:
+----------------
+3
+
+Explanation:
+------------
+Cubes in the row, row[0] = -10, row[1] = -5, row[2] = 0, row[3] = 3, row[4]=4.
+There are 2 indices possible 3 and 4, but you need to find the smallest index, 
+so answer is 3
+
+
+Sample Input-2:
+---------------
+5
+0 2 4 5 7
+
+Sample Output-2:
+----------------
+0
+
+
+import java.util.*;
+class re{
+    public static int smallno(int arr[]){
+        int l=0;
+        int p=-1;
+        int r=arr.length-1;
+        while(l<r){
+            int mid=l+(r-l)/2;
+            if(arr[mid]<mid){
+                l=mid+1;
+                
+            }
+          
+           
+            else{
+                r=mid;
+            }
+        }
+    
+     if(arr[l]!=l){
+         return -1;
+     }
+     else{
+         return l;
+     }
+    }
+    public static void main (String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();
+        int b[]=new int[a];
+        for(int i=0;i<a;i++){
+            b[i]=sc.nextInt();
+        }
+        System.out.println(smallno(b));
+    }
+}
+************************************************************
